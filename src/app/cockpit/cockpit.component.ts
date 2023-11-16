@@ -1,4 +1,4 @@
-import { Component, OnInit ,EventEmitter,Output} from '@angular/core';
+import { Component, OnInit ,EventEmitter,Output,ElementRef,ViewChild} from '@angular/core';
 import { NgModule } from '@angular/compiler/src/core';
 import { NgModel } from '@angular/forms';
 
@@ -17,7 +17,17 @@ export class CockpitComponent implements OnInit {
  @Output('bpCreated') blueprintCreated=new EventEmitter<{serverName:string,serverContent:string}>();;
   newServerName = '';
   newServerContent = '';
+ debugger
+  port:any;
+  //secondway of local reference
+  @ViewChild('cockpit') portNumber:ElementRef;
+  onAddPortNumber(portNumber:HTMLInputElement){
+    //getting value first way for local reference
+    this.port=portNumber.value;
+     //getting value second way for local reference
+     this.port=this.portNumber.nativeElement.value;
 
+  }
   constructor() { 
     
   }
