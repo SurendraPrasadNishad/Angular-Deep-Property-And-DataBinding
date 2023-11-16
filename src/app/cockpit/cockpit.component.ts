@@ -17,7 +17,7 @@ export class CockpitComponent implements OnInit {
  @Output('bpCreated') blueprintCreated=new EventEmitter<{serverName:string,serverContent:string}>();;
   newServerName = '';
   newServerContent = '';
- debugger
+ 
   port:any;
   //secondway of local reference
   @ViewChild('cockpit') portNumber:ElementRef;
